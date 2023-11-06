@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\VerifyCsrfToken;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BatManController@handle');
-Route::get('/botman/tinker', 'BotManController@tinker');
+Route::match(['get', 'post'], '/messageBot', 'App\Http\Controllers\BatManController@Handle')
+                        ->withoutMiddleware([VerifyCsrfToken::class]);
+
+
+
+
+
 

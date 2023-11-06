@@ -2,6 +2,17 @@
 
 return [
 
+    'drivers' => [
+        
+        'facebook' => [
+            'token' => env('FACEBOOK_PAGE_ACCESS_TOKEN'),
+            'app_secret' => env('FACEBOOK_APP_SECRET'),
+            'verification' => env('FACEBOOK_VERIFICATION'),
+            'start_button_payload' => 'GET_STARTED',
+        ],
+    ],
+
+
     /*
     |--------------------------------------------------------------------------
     | Conversation Cache Time
@@ -25,4 +36,20 @@ return [
     |
     */
     'user_cache_time' => 30,
+
+    /*
+    |--------------------------------------------------------------------------
+    | cURL Options
+    |--------------------------------------------------------------------------
+    |
+    | BotMan will use this array to prepare every cURL request.
+    | The same option can be set per driver in the relative
+    | driver configuration file. It uses the
+    | curl_setopt_array() function.
+    |
+    */
+    'curl_options' => [],
+
+    
+
 ];
